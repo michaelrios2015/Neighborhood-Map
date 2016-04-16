@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">.
+        <title>Mapping maps</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div id="container1">
+            <form data-bind="event: { keyup: filter}">
+                <input data-bind="textInput: Search" type="text">
+                <br>
+            </form>
+
+            <div id="text">
+                <ul data-bind="foreach: markerList">
+                    <li data-bind="text: title, click: $parent.toggleBounce, visible: shouldShowMessage">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="container2">
+            <div data-bind="text: error"></div>
+        </div>
+
+        <div data-bind="text: error" id="map" class="my-map"></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <script src="script.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa5cSvLuzwwSeEN-EpgKERJp6mYKpOmog&callback=mapInitialize" onerror="googleError()" async defer>
+            
+        </script>
+    </body>
+
+</html>
